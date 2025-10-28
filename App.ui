@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>App</class>
+ <widget class="QWidget" name="App">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ZeroService</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>720</height>
+    </rect>
+   </property>
+
+   <!-- СТРАНИЦА 1: ПАТТЕРНЫ -->
+   <widget class="QWidget" name="tab_patterns">
+    <attribute name="title">
+     <string>📊 Паттерны</string>
+    </attribute>
+    <layout class="QHBoxLayout" name="horizontalLayout_patterns">
+     <item>
+      <widget class="QListWidget" name="patternList">
+       <property name="toolTip">
+        <string>Список всех доступных паттернов</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_patterns">
+       <item>
+        <widget class="QLabel" name="patternImage">
+         <property name="minimumSize">
+          <size><width>260</width><height>200</height></size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="text">
+          <string>Изображение паттерна</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextBrowser" name="patternDescription">
+         <property name="toolTip">
+          <string>Описание выбранного паттерна</string>
+         </property>
+         <property name="html">
+          <string>
+           &lt;p&gt;Выберите паттерн из списка слева&lt;/p&gt;
+          </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+
+   <!-- СТРАНИЦА 2: АНАЛИЗ ГРАФИКА -->
+   <widget class="QWidget" name="tab_graph">
+    <attribute name="title">
+     <string>📈 График</string>
+    </attribute>
+    <layout class="QGridLayout" name="gridLayout_graph">
+     <item row="0" column="0" colspan="2">
+      <widget class="QTextEdit" name="resultChatgrahik">
+       <property name="minimumHeight"><number>80</number></property>
+       <property name="placeholderText"><string>Результат анализа графика</string></property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton">
+       <property name="text"><string>Загрузить картинку графика</string></property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text"><string>Загрузить картинку объемов</string></property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QGraphicsView" name="graphicsView"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QGraphicsView" name="graphicsView_3"/>
+     </item>
+     <item row="3" column="0" colspan="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_buttons">
+       <item><widget class="QPushButton" name="pushButton_3"><property name="text"><string>Получить График</string></property></widget></item>
+       <item><widget class="QPushButton" name="pushButton_4"><property name="text"><string>Визуализировать прогноз</string></property></widget></item>
+      </layout>
+     </item>
+     <item row="4" column="0" colspan="2">
+      <widget class="QGraphicsView" name="graphicsView_2">
+       <property name="minimumHeight"><number>230</number></property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+
+   <!-- СТРАНИЦА 3: ЧАТ -->
+   <widget class="QWidget" name="tab_chat">
+    <attribute name="title">
+     <string>💬 Чат</string>
+    </attribute>
+    <layout class="QVBoxLayout" name="verticalLayout_chat">
+     <item>
+      <widget class="QTextEdit" name="chatOutput">
+       <property name="readOnly"><bool>true</bool></property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_input">
+       <item>
+        <widget class="QLineEdit" name="chatInput">
+         <property name="placeholderText"><string>Введите сообщение...</string></property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="sendButton">
+         <property name="text"><string>Отправить</string></property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+
+  </widget>
+
+  <!-- Темно-синяя тема -->
+  <property name="styleSheet">
+   <string notr="true">
+    QWidget {
+        background-color: #101622;
+        color: #E8EAF6;
+        font-family: 'Segoe UI';
+        font-size: 10pt;
+    }
+    QListWidget, QTextEdit, QTextBrowser, QLineEdit {
+        background-color: #1A2235;
+        border: 1px solid #2B3550;
+        border-radius: 6px;
+        padding: 4px;
+        color: #E8EAF6;
+    }
+    QPushButton {
+        background-color: #1E90FF;
+        border: none;
+        border-radius: 6px;
+        padding: 6px 12px;
+        color: white;
+        font-weight: bold;
+    }
+    QPushButton:hover {
+        background-color: #007FFF;
+    }
+    QPushButton:pressed {
+        background-color: #005FCC;
+    }
+    QTabWidget::pane {
+        border: 1px solid #2B3550;
+        background: #101622;
+    }
+    QTabBar::tab {
+        background: #1A2235;
+        color: #E8EAF6;
+        padding: 8px 16px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        margin-right: 2px;
+    }
+    QTabBar::tab:selected {
+        background: #1E90FF;
+        color: white;
+    }
+   </string>
+  </property>
+
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
